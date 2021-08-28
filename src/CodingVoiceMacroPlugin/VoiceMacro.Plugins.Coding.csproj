@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard1.4</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="vmAPI">
+          <Private>false</Private>
+          <HintPath>$(OutDir)\vmAPI.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+</Project>
