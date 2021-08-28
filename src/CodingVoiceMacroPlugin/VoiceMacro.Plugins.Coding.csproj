@@ -3,6 +3,12 @@
         <TargetFramework>netstandard1.4</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
+      <Compile Include="..\..\SethCS\SethCS\Extensions\StringExtensions.cs" Link="StringExtensions.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Microsoft.NETCore.Portable.Compatibility" Version="1.0.1" />
+    </ItemGroup>
+    <ItemGroup>
         <Reference Include="vmAPI">
           <Private>false</Private>
           <HintPath>$(OutDir)\vmAPI.dll</HintPath>
