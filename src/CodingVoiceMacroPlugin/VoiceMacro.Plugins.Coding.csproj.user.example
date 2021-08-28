@@ -1,0 +1,5 @@
+<Project>
+    <PropertyGroup>
+        <OutDir>C:\Path\To\VoiceMacro\Plugins</OutDir>
+    </PropertyGroup>
+</Project>
