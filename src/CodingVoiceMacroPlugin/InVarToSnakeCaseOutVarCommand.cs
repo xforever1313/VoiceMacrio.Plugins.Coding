@@ -9,15 +9,15 @@ using SethCS.Extensions;
 
 namespace VoiceMacro.Plugins.Coding
 {
-    public sealed class InVarToPascalCaseOutVarCommand : BaseInVarToCaseOutVarCommand
+    public sealed class InVarToSnakeCaseOutVarCommand : BaseInVarToCaseOutVarCommand
     {
         // ---------------- Properties ----------------
 
-        public override string DisplayName => "Input Var, To Pascal Case, Output var";
+        public override string DisplayName => "Input Var, To Snake Case, Output var";
 
         public override string Description => 
-$@"This command takes in the name of a variable, transforms its value to Pascal Case, and outputs the value into a different variable.
-For example, 'Hello world how are uou' becomes 'HelloWorldHowAreYou'.
+$@"This command takes in the name of a variable, transforms its value to Snake Case, and outputs the value into a different variable.
+For example, 'Hello world how are uou' becomes 'hello_world_how_are_you'.
     Argument 1 - The name of the variable to read the value from {Constants.VariableTypeDescription}.
     Argument 2 - The name of the variable to save the transformed value to {Constants.VariableTypeDescription}.
                  The variable will contain {Constants.ErrorString} if the variable in argument 1 does not exist.
@@ -25,13 +25,13 @@ For example, 'Hello world how are uou' becomes 'HelloWorldHowAreYou'.
     This command is always Synchronized
 ";
 
-        public override string ID => "2704D5F9-336F-4E23-8510-5227E2F1F60F";
+        public override string ID => "3E3F164D-6B67-40B7-8983-236A590408B4";
 
         // ---------------- Functions ----------------
 
         protected override string Transform( string input )
         {
-            return input.ToPascalCase();
+            return input.ToSnakeCase();
         }
     }
 }
