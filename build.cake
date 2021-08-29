@@ -8,8 +8,11 @@ const string defaultTarget = buildTarget;
 string target = Argument( "target", defaultTarget );
 
 FilePath sln = File( "src/VoiceMacroCodingPlugin.sln" );
-DirectoryPath distroPath = Directory( "DistPackages" );
 
+const string distroPathName = "DistPackages";
+DirectoryPath distroPath = Directory( distroPathName );
+
+const string packageName = "VoiceMacro.Plugins.Coding";
 const string version = "0.1.0";
 
 MSBuildSettings msBuildSettings = new MSBuildSettings
@@ -41,16 +44,6 @@ Task( releaseTarget )
 
         msBuildSettings.Configuration = "Release";
 
-        msBuildSettings.WithProperty(
-            "OutDir",
-            distroPath.ToString()
-        );
-
-        msBuildSettings.WithProperty(
-            "OutputPath",
-            distroPath.ToString()
-        );
-
         MSBuild( sln, msBuildSettings );
     }
 ).Description( "Builds the release build." );
@@ -59,12 +52,22 @@ Task( zipTarget )
 .Does(
     () =>
     {
-        FilePath glob = distroPath.CombineWithFilePath( File( "(*.dll|*.pdb)" ) );
+        CopyFile(
+            File( "LICENSE_1_0.txt" ),
+            distroPath.CombineWithFilePath( File( $"{packageName}.LICENSE_1_0.txt" ) )
+        );
+
+        CopyFile(
+            File( "Readme.md" ),
+            distroPath.CombineWithFilePath( File( $"{packageName}.Readme.md" ) )
+        );
+
+        FilePath glob = distroPath.CombineWithFilePath( File( "(*.dll|*.pdb|*.txt|*md)" ) );
         var files = GetFiles( glob.ToString() );
 
-        FilePath outputFile = distroPath.CombineWithFilePath( File( $"VoiceMacro.Plugins.Coding_{version}.zip" ) );
+        FilePath outputFile = distroPath.CombineWithFilePath( File( $"{packageName}_{version}.zip" ) );
 
-        Zip( "./", outputFile.ToString(), files );
+        Zip( distroPathName, outputFile.ToString(), files );
     }
 ).Description( "Creates the .zip that contains the plugin." )
 .IsDependentOn( releaseTarget );
