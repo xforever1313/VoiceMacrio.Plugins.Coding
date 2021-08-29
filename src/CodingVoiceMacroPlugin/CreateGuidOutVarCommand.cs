@@ -14,7 +14,7 @@ namespace VoiceMacro.Plugins.Coding
     {
         // ---------------- Properties ----------------
 
-        public string DisplayName => "Create GUID, Output Var";
+        public string DisplayName => $"{Constants.DisplayNamePrefix} Create GUID, Output Var";
 
         public string Description =>
 $@"Creates a GUID and outputs it to the specified variable.

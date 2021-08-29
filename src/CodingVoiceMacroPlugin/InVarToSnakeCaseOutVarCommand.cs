@@ -13,7 +13,7 @@ namespace VoiceMacro.Plugins.Coding
     {
         // ---------------- Properties ----------------
 
-        public override string DisplayName => "Input Var, To Snake Case, Output var";
+        public override string DisplayName => $"{Constants.DisplayNamePrefix} Input Var, To Snake Case, Output var";
 
         public override string Description => 
 $@"This command takes in the name of a variable, transforms its value to Snake Case, and outputs the value into a different variable.

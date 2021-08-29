@@ -13,7 +13,7 @@ namespace VoiceMacro.Plugins.Coding
     {
         // ---------------- Properties ----------------
 
-        public override string DisplayName => "Input Var, To Macro Case, Output var";
+        public override string DisplayName => $"{Constants.DisplayNamePrefix} Input Var, To Macro Case, Output var";
 
         public override string Description => 
 $@"This command takes in the name of a variable, transforms its value to Macro Case (or Upper Snake Case), and outputs the value into a different variable.

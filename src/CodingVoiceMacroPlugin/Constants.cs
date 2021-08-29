@@ -15,5 +15,7 @@ namespace VoiceMacro.Plugins.Coding
         internal const string ErrorString = "ERR!";
 
         internal const string VariableTypeDescription = "(must be profile _p, global _g, or saved _s)";
+
+        internal const string DisplayNamePrefix = "[Coding]";
     }
 }
