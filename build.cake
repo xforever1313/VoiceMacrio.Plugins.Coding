@@ -13,7 +13,7 @@ const string distroPathName = "DistPackages";
 DirectoryPath distroPath = Directory( distroPathName );
 
 const string packageName = "VoiceMacro.Plugins.Coding";
-const string version = "0.1.0";
+const string version = "1.0.0";
 
 MSBuildSettings msBuildSettings = new MSBuildSettings
 {
