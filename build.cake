@@ -21,7 +21,7 @@ MSBuildSettings msBuildSettings = new MSBuildSettings
     ToolVersion = MSBuildToolVersion.VS2019,
     MaxCpuCount = 0
 };
-msBuildSettings.WithProperty( "Version", version )
+msBuildSettings = msBuildSettings.WithProperty( "Version", version )
     .WithProperty( "AssemblyVersion", version )
     .WithProperty( "FileVersion", version );
 
