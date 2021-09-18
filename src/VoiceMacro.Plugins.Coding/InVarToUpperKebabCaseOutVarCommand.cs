@@ -16,7 +16,6 @@ namespace VoiceMacro.Plugins.Coding
         public InVarToUpperKeabCaseOutVarCommand() :
             this( new VmCommands() )
         {
-
         }
 
         public InVarToUpperKeabCaseOutVarCommand( IVmCommands vmCommands ) :
