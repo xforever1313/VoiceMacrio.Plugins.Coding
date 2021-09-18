@@ -36,7 +36,7 @@ namespace VoiceMacro.Plugins.Coding
         public string DisplayName => $"{Constants.DisplayNamePrefix} Get Random Integer";
 
         public string Description =>
-$@"Generates a randome interger and outputs it to the specified variable.
+$@"Generates a random interger and outputs it to the specified variable.
     Argument 1 - The name of the variable to write the generated integer to {Constants.VariableTypeDescription}.
                  On an error, this is a multiline string with the first line being '{Constants.ErrorString}',
                  while the second line is what went wrong.
