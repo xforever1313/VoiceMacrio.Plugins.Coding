@@ -2,6 +2,7 @@
 
 const string buildTarget = "build";
 const string releaseTarget = "build_release";
+const string testTarget = "run_test";
 const string zipTarget = "create_zip";
 const string defaultTarget = buildTarget;
 
@@ -47,6 +48,40 @@ Task( releaseTarget )
         MSBuild( sln, msBuildSettings );
     }
 ).Description( "Builds the release build." );
+
+Task( testTarget )
+.Does(
+    () =>
+    {
+        // TODO: Maybe this should go into Cake.Frosting and use the test helpers
+        // in Seth.CakeLib?
+        FilePath testProject = "src/VoiceMacro.Plugins.Coding.Tests/VoiceMacro.Plugins.Coding.Tests.csproj";
+        DirectoryPath resultsDir = Directory( "TestResults" );
+        FilePath resultFile = resultsDir.CombineWithFilePath( "test_results.xml" );
+
+        EnsureDirectoryExists( resultsDir );
+        CleanDirectory( resultsDir );
+
+        DotNetCoreTestSettings settings = new DotNetCoreTestSettings
+        {
+            NoBuild = true,
+            NoRestore = true,
+            Configuration = "Debug",
+            ResultsDirectory = resultsDir,
+            VSTestReportPath = resultFile,
+            Verbosity = DotNetCoreVerbosity.Normal
+        };
+
+        // Need to restore to download the TestHost, which is a NuGet package.
+        Information( "Restoring..." );
+        DotNetCoreRestore( testProject.ToString() );
+        Information( "Restoring... Done!" );
+
+        Information( "Running Tests..." );
+        DotNetCoreTest( testProject.ToString(), settings );
+        Information( "Running Tests... Done!" );
+    }
+).Description( "Runs all tests" );
 
 Task( zipTarget )
 .Does(
