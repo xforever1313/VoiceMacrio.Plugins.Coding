@@ -8,7 +8,7 @@
 using Moq;
 using NUnit.Framework;
 
-namespace VoiceMacro.Plugins.Coding.Tests
+namespace VoiceMacro.Plugins.Coding.Tests.UnitTests
 {
     [TestFixture]
     public sealed class GetRandomIntegerCommandTests
