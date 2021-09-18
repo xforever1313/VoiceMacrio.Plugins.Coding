@@ -15,6 +15,21 @@ namespace VoiceMacro.Plugins.Coding
 
         private const string url = "https://github.com/xforever1313/VoiceMacro.Plugins.Coding";
 
+        private readonly IVmCommands vmCommands;
+
+        // ---------------- Constructor ----------------
+
+        public GetSourceUrlOutVarCommand() :
+            this( new VmCommands() )
+        {
+
+        }
+
+        public GetSourceUrlOutVarCommand( IVmCommands vmCommands )
+        {
+            this.vmCommands = vmCommands;
+        }
+
         // ---------------- Properties ----------------
 
         public string DisplayName => $"{Constants.DisplayNamePrefix} Get Source URL Version, Output Var";
@@ -45,7 +60,7 @@ $@"Gets this plugin's URL to the source code and outputs it to the specified var
 
         public void ReceiveParams( string Param1, string Param2, string Param3, bool Synchron )
         {
-            vmCommand.SetVariable( Param1, url );
+            this.vmCommands.SetVariable( Param1, url );
         }
     }
 }

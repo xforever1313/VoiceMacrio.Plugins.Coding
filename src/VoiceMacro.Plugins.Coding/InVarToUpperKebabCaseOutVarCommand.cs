@@ -11,6 +11,19 @@ namespace VoiceMacro.Plugins.Coding
 {
     public sealed class InVarToUpperKeabCaseOutVarCommand : BaseInVarToCaseOutVarCommand
     {
+        // ---------------- Constructor ----------------
+
+        public InVarToUpperKeabCaseOutVarCommand() :
+            this( new VmCommands() )
+        {
+
+        }
+
+        public InVarToUpperKeabCaseOutVarCommand( IVmCommands vmCommands ) :
+            base( vmCommands )
+        {
+        }
+
         // ---------------- Properties ----------------
 
         public override string DisplayName => $"{Constants.DisplayNamePrefix} Input Var, To Upper Kebab Case, Output var";

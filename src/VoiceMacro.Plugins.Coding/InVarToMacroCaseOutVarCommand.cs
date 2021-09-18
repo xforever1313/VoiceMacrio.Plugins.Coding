@@ -11,6 +11,19 @@ namespace VoiceMacro.Plugins.Coding
 {
     public sealed class InVarToMacroCaseOutVarCommand : BaseInVarToCaseOutVarCommand
     {
+        // ---------------- Constructor ----------------
+
+        public InVarToMacroCaseOutVarCommand() :
+            this( new VmCommands() )
+        {
+
+        }
+
+        public InVarToMacroCaseOutVarCommand( IVmCommands vmCommands ) :
+            base( vmCommands )
+        {
+        }
+
         // ---------------- Properties ----------------
 
         public override string DisplayName => $"{Constants.DisplayNamePrefix} Input Var, To Macro Case, Output var";

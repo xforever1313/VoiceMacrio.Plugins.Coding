@@ -11,6 +11,19 @@ namespace VoiceMacro.Plugins.Coding
 {
     public sealed class InVarToLowerKebabCaseOutVarCommand : BaseInVarToCaseOutVarCommand
     {
+        // ---------------- Constructor ----------------
+
+        public InVarToLowerKebabCaseOutVarCommand() :
+            this( new VmCommands() )
+        {
+
+        }
+
+        public InVarToLowerKebabCaseOutVarCommand( IVmCommands vmCommands ) :
+            base( vmCommands )
+        {
+        }
+
         // ---------------- Properties ----------------
 
         public override string DisplayName => $"{Constants.DisplayNamePrefix} Input Var, To Lower Kebab Case, Output var";

@@ -13,6 +13,23 @@ namespace VoiceMacro.Plugins.Coding
 {
     public sealed class GetVersionOutVarCommand : vmInterface
     {
+        // ---------------- Fields ----------------
+
+        private readonly IVmCommands vmCommands;
+
+        // ---------------- Constructor ----------------
+
+        public GetVersionOutVarCommand() :
+            this( new VmCommands() )
+        {
+
+        }
+
+        public GetVersionOutVarCommand( IVmCommands vmCommands )
+        {
+            this.vmCommands = vmCommands;
+        }
+
         // ---------------- Properties ----------------
 
         public string DisplayName => $"{Constants.DisplayNamePrefix} Get Plugin Version, Output Var";
@@ -44,7 +61,7 @@ $@"Gets this plugin's version and outputs it to the specified variable.
         public void ReceiveParams( string Param1, string Param2, string Param3, bool Synchron )
         {
             Version vers = typeof( GetVersionOutVarCommand ).GetTypeInfo().Assembly.GetName().Version;
-            vmCommand.SetVariable( Param1, vers.ToString( 3 ) );
+            this.vmCommands.SetVariable( Param1, vers.ToString( 3 ) );
         }
     }
 }

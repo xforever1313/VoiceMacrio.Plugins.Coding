@@ -13,7 +13,14 @@ namespace VoiceMacro.Plugins.Coding
     {
         // ---------------- Constructor ----------------
 
-        public InVarToCamelCaseOutVarCommand()
+        public InVarToCamelCaseOutVarCommand() :
+            this( new VmCommands() )
+        {
+
+        }
+
+        public InVarToCamelCaseOutVarCommand( IVmCommands vmCommands ) :
+            base( vmCommands )
         {
         }
 

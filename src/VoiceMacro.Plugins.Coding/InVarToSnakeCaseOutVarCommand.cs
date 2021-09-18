@@ -11,6 +11,19 @@ namespace VoiceMacro.Plugins.Coding
 {
     public sealed class InVarToSnakeCaseOutVarCommand : BaseInVarToCaseOutVarCommand
     {
+        // ---------------- Constructor ----------------
+
+        public InVarToSnakeCaseOutVarCommand() :
+            this( new VmCommands() )
+        {
+
+        }
+
+        public InVarToSnakeCaseOutVarCommand( IVmCommands vmCommands ) :
+            base( vmCommands )
+        {
+        }
+
         // ---------------- Properties ----------------
 
         public override string DisplayName => $"{Constants.DisplayNamePrefix} Input Var, To Snake Case, Output var";

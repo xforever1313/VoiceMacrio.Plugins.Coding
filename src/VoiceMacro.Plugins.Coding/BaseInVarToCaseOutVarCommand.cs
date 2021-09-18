@@ -12,6 +12,17 @@ namespace VoiceMacro.Plugins.Coding
 {
     public abstract class BaseInVarToCaseOutVarCommand : vmInterface
     {
+        // ---------------- Fields ----------------
+
+        private readonly IVmCommands vmCommands;
+
+        // ---------------- Constructor ----------------
+
+        protected BaseInVarToCaseOutVarCommand( IVmCommands vmCommands )
+        {
+            this.vmCommands = vmCommands;
+        }
+
         // ---------------- Properties ----------------
 
         public abstract string DisplayName { get; }
@@ -39,14 +50,14 @@ namespace VoiceMacro.Plugins.Coding
             string input = vmCommand.GetVariable( Param1 );
             if( input.Equals( Constants.ErrorString ) )
             {
-                vmCommand.SetVariable(
+                this.vmCommands.SetVariable(
                     Param2,
                     Constants.ErrorString + Environment.NewLine + $"{Param1} does not exist"
                 );
             }
             else
             {
-                vmCommand.SetVariable( Param2, Transform( input ) );
+                this.vmCommands.SetVariable( Param2, Transform( input ) );
             }
         }
 
