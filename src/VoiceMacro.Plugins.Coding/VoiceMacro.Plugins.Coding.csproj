@@ -14,6 +14,11 @@
           <HintPath>$(OutDir)\vmAPI.dll</HintPath>
         </Reference>
     </ItemGroup>
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+            <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
     <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
       <Copy SourceFiles="$(OutDir)\$(TargetFileName)" DestinationFolder="$(MSBuildThisFileDirectory)\..\..\DistPackages\" ContinueOnError="false" />
       <Copy SourceFiles="$(OutDir)\$(TargetName).pdb" DestinationFolder="$(MSBuildThisFileDirectory)\..\..\DistPackages\" ContinueOnError="false" />
