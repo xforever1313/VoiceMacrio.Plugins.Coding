@@ -12,6 +12,23 @@ namespace VoiceMacro.Plugins.Coding
 {
     public sealed class CreateGuidOutVarCommand : vmInterface
     {
+        // ---------------- Fields ----------------
+
+        private readonly IVmCommands vmCommands;
+
+        // ---------------- Constructor ----------------
+
+        public CreateGuidOutVarCommand() :
+            this( new VmCommands() )
+        {
+
+        }
+
+        public CreateGuidOutVarCommand( IVmCommands vmCommands )
+        {
+            this.vmCommands = vmCommands;
+        }
+
         // ---------------- Properties ----------------
 
         public string DisplayName => $"{Constants.DisplayNamePrefix} Create GUID, Output Var";
@@ -59,7 +76,7 @@ $@"Creates a GUID and outputs it to the specified variable.
                 outputString = guid.ToString( Param2 );
             }
 
-            vmCommand.SetVariable( Param1, outputString );
+            this.vmCommands.SetVariable( Param1, outputString );
         }
     }
 }
