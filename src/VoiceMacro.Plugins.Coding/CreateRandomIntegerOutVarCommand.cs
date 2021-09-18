@@ -10,7 +10,7 @@ using vmAPI;
 
 namespace VoiceMacro.Plugins.Coding
 {
-    public sealed class GetRandomIntegerCommand : vmInterface
+    public sealed class CreateRandomIntegerOutVarCommand : vmInterface
     {
         // ---------------- Fields ----------------
 
@@ -19,13 +19,13 @@ namespace VoiceMacro.Plugins.Coding
 
         // ---------------- Constructor ----------------
 
-        public GetRandomIntegerCommand() :
+        public CreateRandomIntegerOutVarCommand() :
             this( new VmCommands() )
         {
             
         }
 
-        public GetRandomIntegerCommand( IVmCommands vmCommands )
+        public CreateRandomIntegerOutVarCommand( IVmCommands vmCommands )
         {
             this.random = new Random();
             this.vmCommands = vmCommands;

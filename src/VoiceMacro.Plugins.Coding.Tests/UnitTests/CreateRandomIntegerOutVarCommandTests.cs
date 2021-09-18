@@ -11,12 +11,12 @@ using NUnit.Framework;
 namespace VoiceMacro.Plugins.Coding.Tests.UnitTests
 {
     [TestFixture]
-    public sealed class GetRandomIntegerCommandTests
+    public sealed class CreateRandomIntegerOutVarCommandTests
     {
         // ---------------- Fields ----------------
 
         private Mock<IVmCommands> vmCommands;
-        private GetRandomIntegerCommand uut;
+        private CreateRandomIntegerOutVarCommand uut;
 
         // ---------------- Setup / Teardown ----------------
 
@@ -24,7 +24,7 @@ namespace VoiceMacro.Plugins.Coding.Tests.UnitTests
         public void TestSetup()
         {
             this.vmCommands = new Mock<IVmCommands>( MockBehavior.Strict );
-            this.uut = new GetRandomIntegerCommand( this.vmCommands.Object );
+            this.uut = new CreateRandomIntegerOutVarCommand( this.vmCommands.Object );
         }
 
         [TearDown]
